@@ -59,17 +59,47 @@ class TeaController {
     }
 
     static removeTeaFromBasket(teaId) {
-        this.teasInBasket = this.teasInBasket.filter(id => id != teaId);
+        this.teasInBasket = this.teasInBasket.filter(tea => tea.id != teaId);
         this.saveTeasToCookies();
         this.loadTeasFromCookies();
+        console.log('Tea removed from basket! with id ' + teaId);
     }
 
     static renderTeasInBasket(where){
+        // this.loadTeasFromCookies();
+        // where.innerHTML = '';
+
+        // const teaCount = {};
+
+        // this.teasInBasket.forEach(tea => {
+        //     if (teaCount[tea.id]) {
+        //         teaCount[tea.id].count++;
+        //     } else {
+        //         teaCount[tea.id] = { tea: tea, count: 1 };
+        //     }
+        // });
+        
+
+        // Object.values(teaCount).forEach(({ tea, count }) => {
+        //     where.innerHTML += tea.renderForCart();
+        //     document.getElementById(`amount${tea.id}`).value = count;
+        // });
+
         this.loadTeasFromCookies();
-        console.log(this.teasInBasket);
 
         this.teasInBasket.forEach(tea => {
             where.innerHTML += tea.renderForCart();
         });
     }
+
+    static getAmountOfTeasInBasket() {
+        this.loadTeasFromCookies();
+        return this.teasInBasket.length;
+    }
+
+    static updateCartCount(){
+        document.getElementById('cart-count').textContent = this.getAmountOfTeasInBasket();
+    }
+
+
 }

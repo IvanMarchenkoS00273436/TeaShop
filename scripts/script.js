@@ -1,7 +1,11 @@
 import { Tea } from './models/tea.js';
 import { TeaController } from './controllers/teaController.js';
 
+console.clear();
+
 await TeaController.loadTeasFromJSON();
+
+TeaController.updateCartCount();
 
 let path = window.location.pathname;
 let page = path.split("/").pop();
@@ -18,7 +22,6 @@ if (page == 'index.html' || page == '') {
         button.addEventListener('click', (event) => {
             const teaId = parseInt(event.target.getAttribute('data-tea-id'));
             TeaController.removeTeaFromBasket(teaId);
-            console.log('Tea removed from basket! with id ' + teaId);
         });
     });
 }
@@ -29,6 +32,8 @@ document.querySelectorAll('.add-to-basket-btn').forEach(button => {
             const tea = TeaController.getTeaById(teaId);
             TeaController.addTeaToBasket(tea);
             console.log('Tea added to basket! with id ' + teaId);
+        
+            TeaController.updateCartCount();
         });
     }
 );
