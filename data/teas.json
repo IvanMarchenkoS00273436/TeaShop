@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Green Tea",
+        "description": "Green tea is a type of tea that is made from Camellia sinensis leaves and buds that have not undergone the same withering and oxidation process used to make oolong teas and black teas.",
+        "price": 2.99,
+        "image": "green-tea.webp"
+    },
+    {
+        "id": 2,
+        "name": "Black Tea",
+        "description": "Black tea is a type of tea that is more oxidized than oolong, green, and white teas. Black tea is generally stronger in flavor than other teas.",
+        "price": 2.99,
+        "image": "black-tea.webp"
+    },
+    {
+        "id": 3,
+        "name": "White Tea",
+        "description": "White tea is a type of tea that is made from Camellia sinensis leaves and buds that are processed to minimize oxidation. White tea has a delicate flavor.",
+        "price": 1.99,
+        "image": "white-tea.webp"
+    },
+    {
+        "id": 4,
+        "name": "Oolong Tea",
+        "description": "Oolong tea is a traditional Chinese tea. It is made from the leaves, buds, and stems of the Camellia sinensis plant. Oolong tea is partially oxidized, giving it a flavor that is somewhere between black and green tea.",
+        "price": 3.99,
+        "image": "oolong-tea.webp"
+    },
+    {
+        "id": 5,
+        "name": "Herbal Tea",
+        "description": "Herbal tea is not made from the Camellia sinensis plant, like other teas. Instead, herbal teas are made from dried fruits, flowers, spices, or herbs. Herbal teas have a wide variety of flavors and health benefits.",
+        "price": 2.99,
+        "image": "herbal-tea.webp"
+    },
+    {
+        "id": 6,
+        "name": "Chamomile Tea",
+        "description": "Chamomile tea is a popular herbal tea that is made from the flowers of the chamomile plant. Chamomile tea has a mild, sweet flavor and is often used as a natural remedy for insomnia and anxiety.",
+        "price": 2.99,
+        "image": "chamomile-tea.webp"
+    }
+]

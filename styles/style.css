@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
+}
+#main-index{
+    background-color: #f5f5dc;
+}
+
+/* Style for debugging */
+.debug-border {
+    border: 1px solid red;
+}
+
+.btn-primary {
+    background-color: #8fbc8f; 
+    border-color: #8fbc8f;
+}
+
+.btn-primary:hover {
+    background-color: #6fa06f; 
+    border-color: #6fa06f;
+}
+
+h4 {
+    color: #8fbc8f;
+}

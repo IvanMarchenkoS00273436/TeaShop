@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" i
+        ntegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="styles/style.css">
+    <title>Main page</title>
+</head>
+
+<body>
+  <!-- Header section -->
+  <header>
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+      <div class="container-fluid">
+
+        <!-- NavBar Logo -->
+        <a href="index.html" class="navbar-brand link-body-emphasis text-decoration-none">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          enable-background="new 0 0 800 800" height="70px" width="70px" id="Layer_1" version="1.1" viewBox="0 0 800 800"  xml:space="preserve"><g><path d="M525.4,589.907H213.663c-9.932,0-17.985,8.044-17.985,17.985c0,9.923,8.053,17.984,17.985,17.984H525.4   c9.94,0,17.985-8.062,17.985-17.984C543.386,597.951,535.341,589.907,525.4,589.907z" fill="#4D4D4D"/><path d="M647.063,282.877c3.319-41.837,4.751-82.286,5.005-90.189c0.158-4.865-1.659-9.59-5.049-13.085   c-3.381-3.513-8.054-5.48-12.918-5.48H82.165c-4.883,0-9.537,1.967-12.927,5.48c-3.39,3.495-5.217,8.22-5.059,13.085   c0.492,15,5.199,147.569,19.091,183.821c26.978,70.431,93.536,188.581,236.091,188.581h77.543   c96.564,0,158.213-54.22,196.361-111.091c14.376,9.133,31.378,14.508,49.635,14.508c51.242,0,92.93-41.679,92.93-92.929   C735.83,325.75,696.364,285.072,647.063,282.877z M605.771,332.494c-1.914,13.963-4.049,25.081-6.376,31.141   c-3.372,8.817-7.166,17.827-11.399,26.854c-6.041,12.944-12.996,25.941-20.997,38.517   c-34.328,53.938-87.756,100.113-170.094,100.113h-77.543c-114.972,0-173.582-89.996-202.509-165.484   c-7.886-20.585-13.604-98.445-16-153.542h514.562c-1.055,24.062-2.74,52.445-4.953,78.527   C609.091,304.673,607.519,319.761,605.771,332.494z M642.9,432.536c-11.504,0-22.218-3.46-31.176-9.36   c8.853-16.58,15.869-32.582,21.271-46.667c4.461-11.68,7.974-33.336,10.714-57.837c31.035,0.439,56.15,25.784,56.15,56.906   C699.859,406.981,674.305,432.536,642.9,432.536z" fill="#4D4D4D"/></g></svg>
+        </a>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link fs-4 icon-link icon-link-hover" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4" href="store.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-outline-dark">Login</button>
+
+          <a href="cart.html" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
+              </svg>
+            Basket <span class="badge text-bg-danger"></span>
+            </a>
+        </div>
+
+        <!-- Burger Menu button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid" id="main-index">
+    <section class="pt-3 text-center container">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Discover the Finest Teas</h1>
+          <p class="lead text-body-secondary">Indulge in the exquisite flavors of our premium tea collection. Handpicked from the finest tea gardens, our teas promise a refreshing and delightful experience. Shop now and elevate your tea time with our exclusive blends. Don't miss out on our special offers and discounts!</p>
+          <p>
+            <a href="#" class="btn btn-outline-success btn-lg my-2">Shop Now</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center fw-light">Our Bestsellers</h2>
+      </div>
+    </div>
+
+    <div class="container py-3">
+      <div class="row row-cols-1 row-cols-md-3 g-4" id="main-page-container-for-teas"></div>
+    </div>
+    <hr>
+  </main>
+
+  <!-- Footer section -->
+  <footer class="bg-dark bg-gradient container-fluid">
+    <div class="row">
+
+      <div class="col-12">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        xmlns:xlink="http://www.w3.org/1999/xlink" class="mb-4" 
+        enable-background="new 0 0 800 800" height="70px" width="70px" id="Layer_1" version="1.1" 
+        viewBox="0 0 800 800"  xml:space="preserve"><g><path d="M525.4,589.907H213.663c-9.932,0-17.985,8.044-17.985,17.985c0,9.923,8.053,17.984,17.985,17.984H525.4   c9.94,0,17.985-8.062,17.985-17.984C543.386,597.951,535.341,589.907,525.4,589.907z" fill="#4D4D4D"/><path d="M647.063,282.877c3.319-41.837,4.751-82.286,5.005-90.189c0.158-4.865-1.659-9.59-5.049-13.085   c-3.381-3.513-8.054-5.48-12.918-5.48H82.165c-4.883,0-9.537,1.967-12.927,5.48c-3.39,3.495-5.217,8.22-5.059,13.085   c0.492,15,5.199,147.569,19.091,183.821c26.978,70.431,93.536,188.581,236.091,188.581h77.543   c96.564,0,158.213-54.22,196.361-111.091c14.376,9.133,31.378,14.508,49.635,14.508c51.242,0,92.93-41.679,92.93-92.929   C735.83,325.75,696.364,285.072,647.063,282.877z M605.771,332.494c-1.914,13.963-4.049,25.081-6.376,31.141   c-3.372,8.817-7.166,17.827-11.399,26.854c-6.041,12.944-12.996,25.941-20.997,38.517   c-34.328,53.938-87.756,100.113-170.094,100.113h-77.543c-114.972,0-173.582-89.996-202.509-165.484   c-7.886-20.585-13.604-98.445-16-153.542h514.562c-1.055,24.062-2.74,52.445-4.953,78.527   C609.091,304.673,607.519,319.761,605.771,332.494z M642.9,432.536c-11.504,0-22.218-3.46-31.176-9.36   c8.853-16.58,15.869-32.582,21.271-46.667c4.461-11.68,7.974-33.336,10.714-57.837c31.035,0.439,56.15,25.784,56.15,56.906   C699.859,406.981,674.305,432.536,642.9,432.536z" fill="#4D4D4D"/></g></svg>
+      </div>
+
+      <div class="col-6 col-md">
+        <small class="d-block mb-3 text-white">©Copyright 2024 Ivan Marchenko</small>
+      </div>
+
+      <div class="col-6 col-md">
+        <a class="link-offset-2 link-offset-3-hover link-underline 
+          link-underline-opacity-0 link-underline-opacity-75-hover text-white" href="register.html">
+          Register account
+        </a>
+      </div>
+
+      <div class="col-6 col-md">
+        <a class="link-offset-2 link-offset-3-hover link-underline 
+          link-underline-opacity-0 link-underline-opacity-75-hover text-white" href="about.html">
+          About us
+        </a>
+      </div>
+
+      <div class="col-6 col-md">
+        <a class="link-offset-2 link-offset-3-hover link-underline 
+          link-underline-opacity-0 link-underline-opacity-75-hover text-white" href="store.html">
+          Store page
+        </a>
+      </div>
+    </div>
+  </footer>
+  
+
+  <!-- Script section -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+      crossorigin="anonymous">
+  </script>
+  <script type="module" src="scripts/script.js"></script>
+</body>
+</html>
