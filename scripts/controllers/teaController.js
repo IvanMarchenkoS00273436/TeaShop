@@ -41,8 +41,20 @@ class TeaController {
     // =====================================================================================
     static addTeaToBasket(tea) {
         this.loadTeasFromCookies();
-        this.teasInBasket.push(tea);
+
+        const existingTea = this.teasInBasket.find(teaInBasket => teaInBasket.id == tea.id);
+
+        if(existingTea) {
+            existingTea.amount = existingTea.amount + 1;
+            console.log('Tea amount increased!');
+            console.log(this.teasInBasket);
+        } else {
+            tea.amount = 1;
+            this.teasInBasket.push(tea);
+        }
+
         this.saveTeasToCookies();
+        this.updateCartCount();
     }
 
     static loadTeasFromCookies() {
@@ -50,7 +62,7 @@ class TeaController {
         const teasInBasket = cookies.find(cookie => cookie.includes('teasInBasket'));
         if (teasInBasket) {
             const teaData = JSON.parse(teasInBasket.split('=')[1]);
-            this.teasInBasket = teaData.map(tea => new Tea(tea.id, tea.name, tea.description, tea.price, tea.image));
+            this.teasInBasket = teaData.map(tea => new Tea(tea.id, tea.name, tea.description, tea.price, tea.image, tea.amount));
         }
     }
 
@@ -62,33 +74,39 @@ class TeaController {
         this.teasInBasket = this.teasInBasket.filter(tea => tea.id != teaId);
         this.saveTeasToCookies();
         this.loadTeasFromCookies();
-        console.log('Tea removed from basket! with id ' + teaId);
+        
+        this.renderTeasInBasket(document.getElementById('cart-container'));
+        this.updateCartCount();
     }
 
     static renderTeasInBasket(where){
-        // this.loadTeasFromCookies();
-        // where.innerHTML = '';
-
-        // const teaCount = {};
-
-        // this.teasInBasket.forEach(tea => {
-        //     if (teaCount[tea.id]) {
-        //         teaCount[tea.id].count++;
-        //     } else {
-        //         teaCount[tea.id] = { tea: tea, count: 1 };
-        //     }
-        // });
-        
-
-        // Object.values(teaCount).forEach(({ tea, count }) => {
-        //     where.innerHTML += tea.renderForCart();
-        //     document.getElementById(`amount${tea.id}`).value = count;
-        // });
-
         this.loadTeasFromCookies();
+        where.innerHTML = '';
 
+        document.getElementById('total-price').textContent = "Total price: " + this.getTotalPrice() + "€";
         this.teasInBasket.forEach(tea => {
             where.innerHTML += tea.renderForCart();
+
+            setTimeout(() => {
+                document.getElementById(`amount${tea.id}`).value = tea.amount;
+                document.getElementById(`amount${tea.id}`).addEventListener('change', () => {
+                    const newAmount = parseInt(document.getElementById(`amount${tea.id}`).value);
+                    if (newAmount > 0) {
+                        tea.amount = newAmount;
+                    } else {
+                        tea.amount = 1;
+                        document.getElementById(`amount${tea.id}`).value = 1;
+                    }
+                    this.saveTeasToCookies();
+                    document.getElementById('total-price').textContent = "Total price: " + this.getTotalPrice() + "€";
+                });
+                document.querySelectorAll('.remove-from-basket-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const teaId = parseInt(event.target.getAttribute('data-tea-id'));
+                        TeaController.removeTeaFromBasket(teaId);
+                    });
+                });
+            }, 0);
         });
     }
 
@@ -97,9 +115,11 @@ class TeaController {
         return this.teasInBasket.length;
     }
 
-    static updateCartCount(){
+    static updateCartCount() {
         document.getElementById('cart-count').textContent = this.getAmountOfTeasInBasket();
     }
 
-
+    static getTotalPrice() {
+        return this.teasInBasket.reduce((total, tea) => total + tea.price * tea.amount, 0);
+    }
 }
