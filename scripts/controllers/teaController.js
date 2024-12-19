@@ -12,10 +12,30 @@ class TeaController {
     static deleteTea = (id) => this.teas = this.teas.filter(tea => tea.id != id);
 
     static async renderTeas(where) {
-        const teas = this.getTeas();
-            teas.forEach(tea => {
-                where.innerHTML += tea.render();
-            });
+        // Filtering
+        where.innerHTML = '';
+        let teas = this.getTeas();
+
+        let filterPrice = document.getElementById('filter-price').value;
+        let regexPrice = /[+-]?([0-9]*[.])?[0-9]+/;
+        
+        let filterNames = [];
+        for (let i = 0; i < this.getTeas().length; i++) {
+            let teaName = this.getTeas()[i].name;
+            let checkbox = document.getElementById(teaName);
+            if (checkbox && checkbox.checked) {
+                filterNames.push(teaName);
+            }
+        }
+
+
+        if(regexPrice.test(filterPrice)) {
+            teas = this.getTeas().filter(tea => tea.price <= filterPrice);
+        } 
+        if(filterNames.length > 0) {
+            teas = teas.filter(tea => filterNames.includes(tea.name));
+        }
+        teas.forEach(tea => { where.innerHTML += tea.render(); });
     }
 
     static async renderThreeTeas(where) {
@@ -35,6 +55,18 @@ class TeaController {
             });
         })
         .catch(error => console.error(error));
+    }
+
+    static async renderNamesForFilter() {
+        const where = document.getElementById('filter-names');
+        const teas = this.getTeas();
+
+        teas.forEach(tea => {
+            where.innerHTML += `
+                <label class="form-check-label" for="${tea.name}">${tea.name}</label>
+                <input type="checkbox" class="form-check-input" id="${tea.name}"><br>
+            `;
+        });
     }
 
     // Basket features
@@ -120,6 +152,6 @@ class TeaController {
     }
 
     static getTotalPrice() {
-        return this.teasInBasket.reduce((total, tea) => total + tea.price * tea.amount, 0);
+        return this.teasInBasket.reduce((total, tea) => total + tea.price * tea.amount, 0).toFixed(2);
     }
 }
