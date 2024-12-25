@@ -1,4 +1,3 @@
-//import { User } from "../models/user";
 export { UserController };
 
 class UserController {
@@ -56,7 +55,7 @@ class UserController {
     }
 
     static isPasswordValid(password) {
-        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
         return passwordRegex.test(password);
     }
 
